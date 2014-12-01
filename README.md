@@ -1,5 +1,5 @@
 #Fotorama Block for Concrete5#
-The packages adds a block that adds the (fotorama)[#] gallery to a page.
+The packages adds a block that adds the [fotorama](http://fotorama.io) gallery to a page.
 
 The block is capable of using filesets only at the moments, more options coming soon.
 
