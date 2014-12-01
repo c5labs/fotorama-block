@@ -34,7 +34,7 @@ class Controller extends BlockController
 
     public function getBlockTypeHelp() {
         return t('For support please go to the marketplace page.');
-    } 
+    }
 
     public function on_start()
     {

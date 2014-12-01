@@ -1,6 +1,9 @@
-<?php if (!Page::getCurrentPage()->isEditMode()) { ?>
+<?php 
+defined('C5_EXECUTE') or die('Access Denied.');
 
-<?php if (count($images) > 0) { ?>
+if (!Page::getCurrentPage()->isEditMode()) { 
+
+if (count($images) > 0) { ?>
 
 <div class="fotorama" data-fit="cover" data-height="400" data-nav="thumbs" data-allowfullscreen="true">
 <?php foreach ($images as $image) { ?>

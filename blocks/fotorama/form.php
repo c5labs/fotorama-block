@@ -1,4 +1,6 @@
 <?php
+    defined('C5_EXECUTE') or die('Access Denied.');
+    
     $fsl = new Concrete\Core\File\Set\SetList();
     $fsl->filterByType(FileSet::TYPE_PUBLIC);
     $sets = $fsl->get();
@@ -20,9 +22,9 @@
         <div class="form-group">
             <?php echo $form->label('fileSetIds', t('File Set(s)')); ?>
             <?php echo $form->selectMultiple(
-                'fileSetIds', 
-                $sets_array, 
-                (is_array($selected_ids))  ? $selected_ids : null, 
+                'fileSetIds',
+                $sets_array,
+                (is_array($selected_ids))  ? $selected_ids : null,
                 array('style' => 'border: 1px solid #ccc')
             ); ?>
             <script>
