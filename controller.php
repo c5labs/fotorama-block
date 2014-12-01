@@ -48,7 +48,7 @@ class Controller extends Package
         $al = AssetList::getInstance();
         $al->register(
                 'css', 'fotorama', '3rd-party/fotorama-4.6.2/fotorama.css',
-                array('version' => '4.6.2', 'position' => Asset::ASSET_POSITION_HEADER, 'minify' => true, 'combine' => true), $this
+                array('version' => '4.6.2', 'position' => Asset::ASSET_POSITION_HEADER, 'minify' => true, 'combine' => false), $this
         );
 
         $al->register(

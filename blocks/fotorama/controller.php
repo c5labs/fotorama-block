@@ -21,6 +21,8 @@ class Controller extends BlockController
     protected $btWrapperClass = 'ccm-ui';
     protected $btCacheBlockRecord = true;
     protected $btCacheBlockOutput = true;
+    protected $btCacheBlockOutputOnPost = true;
+    protected $btCacheBlockOutputForRegisteredUsers = false;
     protected $btDefaultSet = 'multimedia';
 
     public function getBlockTypeName()
@@ -38,6 +40,9 @@ class Controller extends BlockController
 
     public function on_start()
     {
+        $this->requireAsset('css', 'fotorama');
+        $this->requireAsset('javascript', 'fotorama');
+        $this->requireAsset('javascript', 'jquery');
     }
 
     public function add()
@@ -49,7 +54,6 @@ class Controller extends BlockController
     {
         $files = array();
         $fileSets = $this->getFileSets();
-
         foreach ($fileSets as $id) {
             $fs = FileSet::getById($id);
             $files = array_merge($files, $fs->getFiles());
@@ -60,8 +64,6 @@ class Controller extends BlockController
 
     public function view()
     {
-        $this->requireAsset('css', 'fotorama');
-        $this->requireAsset('javascript', 'fotorama');
         $this->set('images', $this->getImages());
     }
 
@@ -74,11 +76,13 @@ class Controller extends BlockController
 
     public function getFileSets()
     {
-        return ($fs = $this->fileSetIds) ? $fs : array();
+        $fs = json_decode($this->fileSetIds);
+        return (is_array($fs)) ? $fs : array();
     }
 
     public function save($args)
     {
+        $args['fileSetIds'] = json_encode($args['fileSetIds']);
         parent::save($args);
     }
 }
