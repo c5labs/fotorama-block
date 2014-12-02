@@ -74,6 +74,23 @@ class Controller extends BlockController
         $this->requireAsset('select2');
     }
 
+    public function getPublicFileSets()
+    {
+        $fsl = new \Concrete\Core\File\Set\SetList();
+        $fsl->filterByType(FileSet::TYPE_PUBLIC);
+        $sets = $fsl->get();
+
+        if (0 === count($sets)) {
+            $sets_array = array('No file sets found.');
+        } else {
+            $sets_array = array();
+            foreach ($sets as $set) {
+                $sets_array[$set->getFileSetID()] = $set->getFileSetName();
+            }
+        }
+        return $sets_array;
+    }
+
     public function getFileSets()
     {
         $fs = json_decode($this->fileSetIds);

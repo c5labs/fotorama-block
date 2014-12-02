@@ -1,18 +1,6 @@
 <?php
     defined('C5_EXECUTE') or die('Access Denied.');
-    
-    $fsl = new Concrete\Core\File\Set\SetList();
-    $fsl->filterByType(FileSet::TYPE_PUBLIC);
-    $sets = $fsl->get();
-
-    if (0 === count($sets)) {
-        $sets_array = array('No file sets found.');
-    } else {
-        $sets_array = array();
-        foreach ($sets as $set) {
-            $sets_array[$set->getFileSetID()] = $set->getFileSetName();
-        }
-    }
+    $sets_array = $this->controller->getPublicFileSets();
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
