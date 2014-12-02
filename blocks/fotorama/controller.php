@@ -80,9 +80,8 @@ class Controller extends BlockController
         $fsl->filterByType(FileSet::TYPE_PUBLIC);
         $sets = $fsl->get();
 
-        if (0 === count($sets)) {
-            $sets_array = array();
-        } else {
+        $sets_array = array();
+        if (count($sets) > 0) {
             $sets_array = array();
             foreach ($sets as $set) {
                 $sets_array[$set->getFileSetID()] = $set->getFileSetName();
