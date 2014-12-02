@@ -81,7 +81,7 @@ class Controller extends BlockController
         $sets = $fsl->get();
 
         if (0 === count($sets)) {
-            $sets_array = array('No file sets found.');
+            $sets_array = array();
         } else {
             $sets_array = array();
             foreach ($sets as $set) {
