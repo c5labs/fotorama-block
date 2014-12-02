@@ -38,7 +38,7 @@ class Controller extends BlockController
         return t('For support please go to the marketplace page.');
     }
 
-    public function on_start()
+    public function registerViewAssets()
     {
         $this->requireAsset('css', 'fotorama');
         $this->requireAsset('javascript', 'fotorama');
