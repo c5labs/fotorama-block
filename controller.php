@@ -58,7 +58,10 @@ class Controller extends Package
 
         $al->registerGroup(
             'fotorama',
-            array('fotorama/css', 'fotorama/js')
+            array(
+                array('css', 'fotorama/css'), 
+                array('javascript', 'fotorama/js')
+            )
         );
     }
 }
