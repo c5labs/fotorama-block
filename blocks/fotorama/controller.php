@@ -40,8 +40,7 @@ class Controller extends BlockController
 
     public function registerViewAssets()
     {
-        $this->requireAsset('css', 'fotorama');
-        $this->requireAsset('javascript', 'fotorama');
+        $this->requireAsset('fotorama');
         $this->requireAsset('javascript', 'jquery');
     }
 
