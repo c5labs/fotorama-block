@@ -47,12 +47,12 @@ class Controller extends Package
         // Register themes assets
         $al = AssetList::getInstance();
         $al->register(
-                'css', 'fotorama/css', '3rd-party/fotorama-4.6.2/fotorama.css',
+                'css', 'fotorama/css', 'assets/vendor/fotorama-4.6.2/fotorama.css',
                 array('version' => '4.6.2', 'position' => Asset::ASSET_POSITION_HEADER, 'minify' => true, 'combine' => false), $this
         );
 
         $al->register(
-                'javascript', 'fotorama/js', '3rd-party/fotorama-4.6.2/fotorama.js',
+                'javascript', 'fotorama/js', 'assets/vendor/fotorama-4.6.2/fotorama.js',
                 array('version' => '4.6.2', 'position' => Asset::ASSET_POSITION_FOOTER, 'minify' => true, 'combine' => false), $this
         );
 
