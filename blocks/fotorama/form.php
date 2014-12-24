@@ -1,25 +1,45 @@
 <?php
     defined('C5_EXECUTE') or die('Access Denied.');
-    $sets_array = $this->controller->getPublicFileSets();
 ?>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-image"></i> <?php  echo t('Images to display');?></h3>
-    </div>
-    <div class="panel-body">
-        <div class="form-group">
-            <?php echo $form->label('fileSetIds', t('File Set(s)')); ?>
-            <?php echo $form->selectMultiple(
-                'fileSetIds',
-                $sets_array,
-                (is_array($selected_ids))  ? $selected_ids : null,
-                array('style' => 'border: 1px solid #ccc')
-            ); ?>
-            <script>
-                $(function () {
-                    $("#fileSetIds").select2();
-                });
-            </script>
-        </div>
+<style>
+    .tab-content {
+        margin-top: 10px;
+    }
+    .help-block {
+        font-size: 12px;
+        font-style: italic;
+    }
+    #advanced table td {
+        vertical-align: middle;
+    }
+    #advanced table td .form-group,
+    #advanced table td label {
+        margin-bottom: 0;
+    }
+</style>
+<div id="fotoramaEditor" role="tabpanel">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#general" aria-controls="general" role="tab" data-toggle="tab"><?php echo t('General'); ?></a></li>
+        <li role="presentation"><a href="#appearance" aria-controls="appearance" role="tab" data-toggle="tab"><?php echo t('Appearance'); ?></a></li>
+        <li role="presentation"><a href="#advanced" aria-controls="advanced" role="tab" data-toggle="tab"><?php echo t('Advanced'); ?></a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <?php $this->inc('form-general.php'); ?>
+        <?php $this->inc('form-appearance.php'); ?>
+        <?php $this->inc('form-advanced.php'); ?>
     </div>
 </div>
+    
+<script>
+    $(function () {
+        setTimeout(function () {
+            $('#fotoramaEditor input[type="checkbox"]').each(function () {
+                var init = new Switchery(this, { size: 'small' });
+            });
+        }, 1000);
+    });
+</script>

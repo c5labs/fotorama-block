@@ -5,8 +5,86 @@
             <key></key>
             <unsigned></unsigned>
         </field>
-        <field name="fileSetIds" type="C">
-            <default value="[]" />
+        <field name="image_source" type="C"></field>
+        <field name="width" type="C"></field>
+        <field name="height" type="C"></field>
+        <field name="fit" type="C"></field>
+        <field name="transition" type="C"></field>
+        <field name="transitionduration" type="I">
+            <unsigned />
+            <notnull />
+            <default value="1" />
+        </field>
+        <field name="nav" type="I">
+            <unsigned />
+            <notnull />
+            <default value="1" />
+        </field>
+        <field name="nav_position" type="C"></field>
+        <field name="arrows" type="I">
+            <unsigned />
+            <notnull />
+            <default value="1" />
+        </field>
+        <field name="captions" type="I">
+            <unsigned />
+            <notnull />
+            <default value="0" />
+        </field>
+        <field name="allow_fullscreen" type="I">
+            <unsigned />
+            <notnull />
+            <default value="1" />
+        </field>
+        <field name="lazy_loading" type="I">
+            <unsigned />
+            <notnull />
+            <default value="0" />
+        </field>
+        <field name="hash_nav" type="I">
+            <unsigned />
+            <notnull />
+            <default value="0" />
+        </field>
+        <field name="loop_images" type="I">
+            <unsigned />
+            <notnull />
+            <default value="0" />
+        </field>
+        <field name="autoplay" type="I">
+            <unsigned />
+            <notnull />
+            <default value="0" />
+        </field>
+        <field name="keyboard" type="I">
+            <unsigned />
+            <notnull />
+            <default value="0" />
+        </field>
+        <field name="click" type="I">
+            <unsigned />
+            <notnull />
+            <default value="0" />
+        </field>
+        <field name="swipe" type="I">
+            <unsigned />
+            <notnull />
+            <default value="1" />
+        </field>
+    </table>
+
+    <table name="btFotoramaEntries">
+        <field name="bID" type="I">
+            <unsigned></unsigned>
+        </field>
+        <field name="object_id" type="I">
+            <unsigned />
+            <notnull />
+        </field>
+        <field name="object_type" type="C"></field>
+        <field name="entry_order" type="I">
+            <unsigned />
+            <notnull />
         </field>
     </table>
 </schema>
