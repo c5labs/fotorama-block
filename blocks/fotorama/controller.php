@@ -86,7 +86,7 @@ class Controller extends BlockController
 
         // Defaults
         if ($this->bID <= 0) {
-            foreach ($defaults as $k => $v) {
+            foreach ($this->defaults as $k => $v) {
                 $this->set($k, $v);
             }
         }
