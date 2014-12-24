@@ -72,8 +72,11 @@ defined('C5_EXECUTE') or die('Access Denied.');
 </style>
 <div role="tabpanel" class="tab-pane active" id="general">
 
+        <?php if (!isset($control)) { ?>
         <h3>Image Selection</h3>
         <hr>
+        <?php } ?>
+
         <div class="form-group">
             <?php echo $form->label('image_source', t('Show images from')); ?>
             <?php echo $form->select(
@@ -109,6 +112,8 @@ defined('C5_EXECUTE') or die('Access Denied.');
             </span>
         </div>
 
+    <?php if (!isset($control)) { ?>
+
     <!-- Autoplay !-->
     <div class="form-group">
         <h3>Autoplay</h3>
@@ -125,6 +130,13 @@ defined('C5_EXECUTE') or die('Access Denied.');
             </div>
         </div>
     </div>
+
+    <?php } else { 
+        /* Hidden composer controls that retain defaults from checkbox values */
+        foreach ($defaults as $k => $v) {
+            echo $form->hidden($view->field($k), $v);
+        }
+     } ?>
 
 </div>
 

@@ -26,6 +26,18 @@ class Controller extends BlockController
     protected $btCacheBlockOutputOnPost = true;
     protected $btCacheBlockOutputForRegisteredUsers = false;
     protected $btDefaultSet = 'multimedia';
+    protected $defaults = array(
+        'width' => '100%',
+        'height' => '',
+        'fit' => 'contain',
+        'transition' => 'slide',
+        'nav_position' => 'bottom',
+        'allow_fullscreen' => '1',
+        'arrows' => '1',
+        'swipe' => '1',
+        'transitiondelay' => '1',
+        'nav' => 'thumbs'
+    );
 
     public function getBlockTypeName()
     {
@@ -74,17 +86,11 @@ class Controller extends BlockController
 
         // Defaults
         if ($this->bID <= 0) {
-            $this->set('image_source', 'files');
-            $this->set('width', '100%');
-            $this->set('height', '');
-            $this->set('fit', 'contain');
-            $this->set('transition', 'slide');
-            $this->set('nav_position', 'bottom');
-            $this->set('allow_fullscreen', '1');
-            $this->set('arrows', '1');
-            $this->set('swipe', '1');
-            $this->set('transitiondelay', '1');
+            foreach ($defaults as $k => $v) {
+                $this->set($k, $v);
+            }
         }
+        $this->set('defaults', $this->defaults);
     }
 
     public function add()
