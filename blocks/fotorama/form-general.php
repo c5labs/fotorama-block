@@ -69,6 +69,10 @@ defined('C5_EXECUTE') or die('Access Denied.');
         display: block;
         margin-top: 15px;
     }
+
+    .composer-control-group .tab-pane label {
+        font-weight: normal;
+    }
 </style>
 <div role="tabpanel" class="tab-pane active" id="general">
 
@@ -131,12 +135,7 @@ defined('C5_EXECUTE') or die('Access Denied.');
         </div>
     </div>
 
-    <?php } else { 
-        /* Hidden composer controls that retain defaults from checkbox values */
-        foreach ($defaults as $k => $v) {
-            echo $form->hidden($view->field($k), $v);
-        }
-     } ?>
+    <?php } ?>
 
 </div>
 
