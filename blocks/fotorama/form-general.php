@@ -174,7 +174,9 @@ defined('C5_EXECUTE') or die('Access Denied.');
         // Wire the add image button
         $('#addImageBtn').click(function () {
             ConcreteFileManager.launchDialog(function (data) {
-                    ConcreteFileManager.getFileDetails(data.fID, function(r) {
+
+                for(var i = 0; i < data.fIDs.length; i++) {
+                    ConcreteFileManager.getFileDetails(data.fIDs[i], function(r) {
                         jQuery.fn.dialog.hideLoader();
                         if ('Image' === r.files[0].genericTypeText) {
                             attachImage(r.files[0]);
@@ -182,7 +184,8 @@ defined('C5_EXECUTE') or die('Access Denied.');
                             alert('The file you selected was not an image file.');
                         }
                     });
-                });
+                }
+            }, { 'multipleSelection' : true });
         });
 
         // Attach an image
