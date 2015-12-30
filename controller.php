@@ -63,13 +63,13 @@ class Controller extends Package
 
         // Fotorama
         $al->register(
-                'css', 'fotorama/css', 'assets/fotorama-4.6.2/fotorama.css',
-                array('version' => '4.6.2', 'position' => Asset::ASSET_POSITION_HEADER, 'minify' => true, 'combine' => false), $this
+                'css', 'fotorama/css', 'assets/fotorama-4.6.4/fotorama.css',
+                array('version' => '4.6.4', 'position' => Asset::ASSET_POSITION_HEADER, 'minify' => true, 'combine' => false), $this
         );
 
         $al->register(
-                'javascript', 'fotorama/js', 'assets/fotorama-4.6.2/fotorama.js',
-                array('version' => '4.6.2', 'position' => Asset::ASSET_POSITION_FOOTER, 'minify' => true, 'combine' => false), $this
+                'javascript', 'fotorama/js', 'assets/fotorama-4.6.4/fotorama.js',
+                array('version' => '4.6.4', 'position' => Asset::ASSET_POSITION_FOOTER, 'minify' => true, 'combine' => false), $this
         );
 
         $al->registerGroup(
