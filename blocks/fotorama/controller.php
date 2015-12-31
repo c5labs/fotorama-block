@@ -110,9 +110,9 @@ class Controller extends BlockController
     public function save($args)
     {
         if ('file_sets' === $args['image_source'] && is_array($args['selected_file_set_ids'])) {
-            $this->saveIds($args['selected_file_set_ids'], 'FS');
+            $this->saveIds($args['selected_file_set_ids'], 'FS', $this->bID);
         } elseif ('files' === $args['image_source'] && is_array($args['img'])) {
-            $this->saveIds($args['img'], 'F');
+            $this->saveIds($args['img'], 'F', $this->bID);
         }
 
         // Checkboxes
@@ -138,16 +138,27 @@ class Controller extends BlockController
         parent::save($args);
     }
 
-    protected function saveIds(array $ids, $type = '')
+    public function duplicate($newBID)
+    {
+        if ('file_sets' === $this->image_source) {
+            $ids = array_map(function($item) { return $item['object_id']; }, $this->getFileSets());
+            $this->saveIds($ids, 'FS', $newBID);
+        } elseif ('files' === $this->image_source) {
+            $ids = array_map(function($item) { return $item->getFileId(); }, $this->getFiles());
+            $this->saveIds($ids, 'F', $newBID);
+        }
+    }
+
+    protected function saveIds(array $ids, $type = '', $bID)
     {
         $db = Database::get();
-        $db->exec('DELETE FROM btFotoramaEntries WHERE bID = ' . $this->bID);
+        $db->exec('DELETE FROM btFotoramaEntries WHERE bID = ' . $bID);
 
         foreach ($ids as $k => $v) {
             $db->insert(
                 'btFotoramaEntries',
                 array(
-                    'bID' => $this->bID,
+                    'bID' => $bID,
                     'object_id' => $v,
                     'object_type' => $type,
                     'entry_order' => $k
