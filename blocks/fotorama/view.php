@@ -1,19 +1,21 @@
 <?php 
 defined('C5_EXECUTE') or die('Access Denied.');
 
-function filter_attr_name($name)
-{
-    switch ($name) {
-        case 'loop_images':
-            return 'loop';
-        case 'hash_nav':
-            return 'hash';
-        case 'nav_position':
-            return 'navposition';
-        case 'allow_fullscreen':
-            return 'allowfullscreen';
-        default:
-            return $name;
+if (! function_exists('filter_attr_name')) {
+    function filter_attr_name($name)
+    {
+        switch ($name) {
+            case 'loop_images':
+                return 'loop';
+            case 'hash_nav':
+                return 'hash';
+            case 'nav_position':
+                return 'navposition';
+            case 'allow_fullscreen':
+                return 'allowfullscreen';
+            default:
+                return $name;
+        }
     }
 }
 
