@@ -14,7 +14,7 @@ class Controller extends Package
 {
     protected $pkgHandle = 'concrete-fotorama-block';
     protected $appVersionRequired = '5.7.1';
-    protected $pkgVersion = '0.10.2';
+    protected $pkgVersion = '0.10.3';
 
     public function getPackageName() 
     {

@@ -15,10 +15,10 @@
             <notnull />
             <default value="1" />
         </field>
-        <field name="nav" type="I">
+        <field name="nav" type="C">
             <unsigned />
             <notnull />
-            <default value="1" />
+            <default value="dots" />
         </field>
         <field name="nav_position" type="C"></field>
         <field name="arrows" type="I">

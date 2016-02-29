@@ -47,7 +47,7 @@ defined('C5_EXECUTE') or die('Access Denied.');
         <div class="row">
             <div class="col-xs-6">
                 <?php echo $form->label('nav', t('Navigation Display')); ?>
-                <?php echo $form->select('nav', array('false' => 'Hidden', '0' => 'Dots', 'thumbs' => 'Thumbnails'), $nav); ?>
+                <?php echo $form->select('nav', array('false' => 'Hidden', 'dots' => 'Dots', 'thumbs' => 'Thumbnails'), $nav); ?>
                 <script>
                 $(function () {
                     $('.form-group select[name="nav"]').change(function () {
