@@ -1,5 +1,5 @@
 <?php
-namespace Concrete\Package\ConcreteFotoramaBlock\Block\Fotorama;
+namespace Concrete\Package\FotoramaBlock\Block\Fotorama;
 
 use Concrete\Core\Block\BlockController;
 use Loader;

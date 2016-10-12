@@ -1,5 +1,5 @@
 <?php
-namespace Concrete\Package\ConcreteFotoramaBlock;
+namespace Concrete\Package\FotoramaBlock;
 
 use Core;
 use AssetList;
@@ -12,13 +12,13 @@ defined('C5_EXECUTE') or die('Access Denied.');
  
 class Controller extends Package 
 {
-    protected $pkgHandle = 'concrete-fotorama-block';
+    protected $pkgHandle = 'fotorama-block';
     protected $appVersionRequired = '5.7.1';
-    protected $pkgVersion = '0.10.3';
+    protected $pkgVersion = '0.11.0';
 
     public function getPackageName() 
     {
-        return t("Fotorama Block Components");
+        return t("Fotorama Block");
     }
 
     public function getPackageDescription() 
