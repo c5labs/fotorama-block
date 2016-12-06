@@ -12,6 +12,7 @@ use Asset;
 use FileSet;
 use Database;
 use File;
+use Events;
 
 defined('C5_EXECUTE') or die("Access Denied.");
 
@@ -109,6 +110,10 @@ class Controller extends BlockController
 
     public function save($args)
     {
+        $event = new \Symfony\Component\EventDispatcher\GenericEvent();
+        $event->setArgument('args', $args);
+        Events::dispatch('on_fotorama_save', $event);
+
         if ('file_sets' === $args['image_source'] && is_array($args['selected_file_set_ids'])) {
             $this->saveIds($args['selected_file_set_ids'], 'FS', $this->bID);
         } elseif ('files' === $args['image_source'] && is_array($args['img'])) {
