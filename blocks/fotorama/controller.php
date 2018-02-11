@@ -136,10 +136,16 @@ class Controller extends BlockController
         );
 
         foreach ($checkboxes as $checkbox) {
-            if (!isset($args[$checkbox])) {
+            if (empty($args[$checkbox])) {
                 $args[$checkbox] = 0;
+            } else {
+                $args[$checkbox] = 1;
             }
         }
+
+        $args['transitionduration'] = 
+            empty($args['transitionduration']) ? 1 : intval($args['transitionduration']);
+
         parent::save($args);
     }
 

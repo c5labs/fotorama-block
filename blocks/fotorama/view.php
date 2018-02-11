@@ -40,7 +40,7 @@ $data_attrs = array(
 $attr_str = '';
 foreach ($data_attrs as $v) {   
     if (in_array($v, array('autoplay', 'transitionduration'))) {
-        $$v = $$v * 1000;
+        $$v = intval($$v) * 1000;
     }
 
     if (!empty($$v) || 0 === $$v) {
