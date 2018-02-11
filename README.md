@@ -12,9 +12,11 @@ The packages adds a block that adds the [fotorama](http://fotorama.io) gallery t
 6. Go to a page, click the add a block button, look for 'Fotorama' under the multimedia section.
 
 ## Upgrading to 0.11.0 from earlier versions ##
+**Before** trying to run the upgrade from the dashboard:
 1. Remove the old 'fotorama_package' or 'concrete-fotorama-block' directory from your installations packages directory.
 2. Copy the new 'fotorama-block' in.
 3. Open your favourite database manipulation tool, goto the packages table, find the 'Fotorama Block Components' row and change the `pkgHandle` from 'fotorama_package' or 'concrete-fotorama-block' to 'fotorama-block'.
+4. Goto the dashboard and run the package upgrade.
 
 ## License ##
 MIT. See attached license file.
