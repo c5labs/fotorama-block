@@ -177,11 +177,10 @@ defined('C5_EXECUTE') or die('Access Denied.');
                 ConcreteFileManager.getFileDetails(data.fID, function(r) {
                     jQuery.fn.dialog.hideLoader();
                     for(var i = 0; i < r.files.length; i++) {
-                        if ('Image' === r.files[i].genericTypeText) {
-                            console.log(r.files[i]);
+                        if (r.files[i].fileName.toLowerCase().match('^.+\.(jpeg|jpg|png|gif)$')) {
                             attachImage(r.files[i]);
                         } else {
-                            alert('The file you selected was not an image file.');
+                            alert('The file you selected "' + r.files[i].fileName + '" does not have a valid extension. (jpeg, jpg, png or gif)');
                         }
                     }
                 });
