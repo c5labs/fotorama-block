@@ -132,7 +132,6 @@ class Controller extends BlockController
             'arrows',
             'click',
             'swipe',
-            'nav',
         );
 
         foreach ($checkboxes as $checkbox) {
