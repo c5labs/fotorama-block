@@ -157,6 +157,8 @@ class Controller extends BlockController
             $ids = array_map(function($item) { return $item->getFileId(); }, $this->getFiles());
             $this->saveIds($ids, 'F', $newBID);
         }
+
+        parent::duplicate($newBID);
     }
 
     protected function saveIds(array $ids, $type = '', $bID)
