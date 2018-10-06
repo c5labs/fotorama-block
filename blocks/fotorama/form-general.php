@@ -204,7 +204,7 @@ defined('C5_EXECUTE') or die('Access Denied.');
         }
 
         // Attach existing images on load
-        <?php foreach ($selected_images as $file) { ?>
+        <?php foreach ($selected_images as $file) { if (empty($file)) { continue; } ?>
             attachImage({ fID: '<?php echo $file->getFileID(); ?>', url: '<?php echo $file->getRecentVersion()->getUrl(); ?>' });
         <?php } ?>
     });

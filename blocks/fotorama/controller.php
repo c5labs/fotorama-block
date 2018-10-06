@@ -196,7 +196,9 @@ class Controller extends BlockController
             }
 
             foreach ($files as $file) {
-                $images[] = $file;
+                if (!empty($file)) {
+                    $images[] = $file;
+                }
             }
         }
 
