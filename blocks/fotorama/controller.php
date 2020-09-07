@@ -187,10 +187,13 @@ class Controller extends BlockController
 
         $images = array();
         foreach ($r as $entry) {
+            $files = array();
 
             if ('FS' === $entry['object_type']) {
                 $fs = FileSet::getById($entry['object_id']);
-                $files = $fs->getFiles();
+                if ($fs) {
+                    $files = $fs->getFiles();
+                }
             } elseif ('F' === $entry['object_type']) {
                 $files = array(File::getById($entry['object_id']));
             }
